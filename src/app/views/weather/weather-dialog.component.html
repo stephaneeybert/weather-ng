@@ -1,0 +1,28 @@
+<form [formGroup]="form" autocomplete="off" (ngSubmit)="save(form)">
+  <h1 mat-dialog-title>{{ 'weathers.form.title' | translate }}</h1>
+  <mat-dialog-content>
+    <mat-form-field>
+      <input matInput formControlName="city" placeholder="{{ 'weathers.form.city.label' | translate }}">
+      <mat-hint>{{ 'weathers.form.city.hint' | translate }}</mat-hint>
+      <mat-error *ngIf="hasError('city', 'required')">{{ 'weathers.form.city.error.required' | translate }}</mat-error>
+      <mat-error *ngIf="hasError('city', 'maxlength')">{{ 'weathers.form.city.error.maxlength' | translate }}</mat-error>
+      <mat-error *ngIf="hasError('city', 'invalidPattern')">{{ 'weathers.form.city.error.invalidPattern' | translate }}</mat-error>
+      <mat-error *ngIf="hasError('city', 'nameIsAlreadyUsed')">{{ 'weathers.form.city.error.nameIsAlreadyUsed' | translate }}</mat-error>
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-content>
+    <mat-form-field>
+      <mat-select formControlName="unit" [compareWith]="compareItemsById"
+      matTooltip="{{ 'weathers.form.unit.tip' | translate }}">
+      <mat-option *ngFor="let weatherTemperatureUnit of weatherTemperatureUnits" value="{{ weatherTemperatureUnit.id }}">
+        {{ weatherTemperatureUnit.name }}
+      </mat-option>
+      </mat-select>
+      <mat-hint>{{ 'weathers.form.unit.hint' | translate }}</mat-hint>
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-flat-button type="button" (click)="close()">{{ 'weathers.form.cancel' | translate }}</button>
+    <button mat-flat-button [disabled]="!form.valid" color="primary" type="submit">{{ 'weathers.form.save' | translate }}</button>
+  </mat-dialog-actions>
+</form>

@@ -1,0 +1,32 @@
+<div libCoreClickOutside (clickOutsideEvent)="sidenav.close()">
+  <mat-sidenav #sidenav mode="push" class="app-sidenav">
+    <mat-toolbar color="primary">
+      <span class="toolbar-filler"></span>
+      <button mat-icon-button (click)="sidenav.toggle()" class="sidenav-toggle-button"
+        [hidden]="!sidenav.opened">
+        <mat-icon aria-label="Menu" class="material-icons">close</mat-icon>
+      </button>
+    </mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item class="sidenav-link" [routerLink]="['/weather']" (click)="sidenav.toggle()">
+        <mat-icon mat-list-icon>cloud</mat-icon>
+        <span class="title" mat-line>{{ 'menu.weather' | translate }}</span>
+        <span mat-line class="secondary">{{ 'menu.weather.description' | translate }}</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <button mat-icon-button (click)="sidenav.toggle()" class="sidenav-toggle-button"
+        [hidden]="sidenav.opened">
+        <mat-icon aria-label="Another menu" class="material-icons">menu</mat-icon>
+      </button>
+      <span class="title">{{ 'app.title' | translate }}</span>
+      <span class="fill-remaining-space"></span>
+    </mat-toolbar-row>
+    <mat-toolbar-row>
+      <span class="fill-remaining-space"></span>
+      <button mat-button routerLink="/weather" matTooltip="{{ 'header.weather' | translate }}"><mat-icon mat-list-icon>cloud</mat-icon></button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>

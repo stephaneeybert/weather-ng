@@ -1,0 +1,56 @@
+{
+  "app": {
+    "title": "WeatherNg",
+    "description": "A weather forecast app"
+  },
+  "menu": {
+    "weather": "Weather",
+    "weather.description": "The weather locations"
+  },
+  "header": {
+    "home": "Home",
+    "weather": "Weather"
+  },
+  "weathers": {
+    "add": {
+      "tip": "Add a new weather location"
+    },
+    "delete": "Delete the weather location",
+    "form": {
+      "title": "Add a weather location",
+      "cancel": "Cancel",
+      "save": "Save",
+      "city": {
+        "label": "City:",
+        "hint": "The city of the weather forecast",
+        "error": {
+          "required": "The city is required",
+          "minlength": "The city is too short",
+          "maxlength": "The city is too long",
+          "invalidPattern": "No special characters",
+          "nameIsAlreadyUsed": "This city is already used"
+        }
+      },
+      "unit": {
+        "label": "Unit:",
+        "hint": "The unit for the temperature"
+      }
+    },
+    "message": {
+      "added": "The weather location {{ city }} has been added.",
+      "maxNbReached": "The maximum number of weather locations is reached. Delete a weather location before adding one.",
+      "deleted": "The weather location {{ city }} has been deleted.",
+      "notFound": "The weather location {{ city }} could not be found.",
+      "noNetwork": "A network error prevented the weather location retrieval.",
+      "alreadyExists": "The weather location {{ city }} already exists."
+    }
+  },
+  "message": {
+    "error": {
+      "reloadApp": "Please reload the application."
+    }
+  },
+  "toast": {
+    "close": "Close"
+  }
+}

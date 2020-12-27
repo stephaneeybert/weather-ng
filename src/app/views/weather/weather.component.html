@@ -1,0 +1,28 @@
+<div style="text-align: right;">
+  <mat-icon (click)="addWeather()" matTooltip="{{ 'weathers.add.tip' | translate }}" class="weather-action">add
+  </mat-icon>
+</div>
+<div *ngIf="(weathers$ | async)!.length > 0" class="weathers">
+  <table>
+    <thead>
+    </thead>
+    <tbody>
+      <tr *ngFor="let weather of weathers$ | async; index as weatherIndex">
+        <td class='weather'>
+          <mat-toolbar>
+            <!-- TODO Beautify the UI -->
+            <div *ngIf="weather.current">
+              <span *ngFor="let uri of weather.current.weather_icons">
+                <img src="{{uri}}" alt="">
+              </span>
+            </div>
+            {{weather.location.name}}, {{weather.location.country}}
+            <span class="fill-remaining-space"></span>
+            <mat-icon (click)="deleteWeather(weather)" matTooltip="{{ 'weathers.delete' | translate }}"
+            class="weather-action">delete</mat-icon>
+          </mat-toolbar>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
