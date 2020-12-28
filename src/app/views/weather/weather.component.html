@@ -10,19 +10,18 @@
       <tr *ngFor="let weather of weathers$ | async; index as weatherIndex">
         <td class='weather'>
           <mat-toolbar>
-            <!-- TODO Beautify the UI -->
             <div *ngIf="weather.current">
-              <span *ngFor="let uri of weather.current.weather_icons">
-                <img src="{{uri}}" alt="">
-              </span>
+            <div [style.background-color]="(weather.current.weather_code | backgroundColor)">
+                <img *ngFor="let uri of weather.current.weather_icons" class='weather-image' src="{{uri}}" alt=''>
+                <span class='weather-temperature'>
+                  <span class='weather-temperature-value'>{{weather.current.temperature}}</span> <span [innerHTML]="getTemperatureUnit(weather.request.unit)"></span>
+                  <br />{{weather.location.name}} {{weather.location.country}}
+                </span>
+                <span class="fill-remaining-space"></span>
+                <mat-icon (click)="deleteWeather(weather)" matTooltip="{{ 'weathers.delete' | translate }}"
+                class="weather-action">delete</mat-icon>
+                </div>
             </div>
-            <div class='weather-temperature'>
-              <span class='weather-temperature-value'>{{weather.current.temperature}}</span> <span [innerHTML]="getTemperatureUnit(weather.request.unit)"></span>
-              <br />{{weather.location.name}} {{weather.location.country}}
-            </div>
-            <span class="fill-remaining-space"></span>
-            <mat-icon (click)="deleteWeather(weather)" matTooltip="{{ 'weathers.delete' | translate }}"
-            class="weather-action">delete</mat-icon>
           </mat-toolbar>
         </td>
       </tr>

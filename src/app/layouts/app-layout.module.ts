@@ -7,11 +7,15 @@ import { I18nModule } from './i18n.module';
 import { SidenavComponent } from './sidenav.component';
 import { SimpleLayoutComponent } from './simple.layout.component';
 import { ToastModule } from '@app/core/toast/toast.module';
+import { BackgroundImagePipe } from '@app/pipe/background-image.pipe';
+import { BackgroundColorPipe } from '@app/pipe/background-color.pipe';
 
 @NgModule({
   declarations: [
     SimpleLayoutComponent,
-    SidenavComponent
+    SidenavComponent,
+    BackgroundImagePipe,
+    BackgroundColorPipe
   ],
   imports: [
     I18nModule,
@@ -26,7 +30,9 @@ import { ToastModule } from '@app/core/toast/toast.module';
     LayoutModule,
     AppUiModule,
     ToastModule,
-    MaterialModule
+    MaterialModule,
+    BackgroundImagePipe,
+    BackgroundColorPipe
   ]
 })
 export class AppLayoutModule { }

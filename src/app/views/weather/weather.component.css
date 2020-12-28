@@ -25,6 +25,10 @@
   font-size: xx-large;
 }
 
+.weather-image {
+  float: left;
+}
+
 mat-icon {
   cursor: pointer;
 }
