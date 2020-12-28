@@ -15,6 +15,16 @@
   padding-bottom: 50px;
 }
 
+.weather-temperature {
+  padding: 5px;
+  text-align: center;
+  width: 100%;
+}
+
+.weather-temperature-value {
+  font-size: xx-large;
+}
+
 mat-icon {
   cursor: pointer;
 }

@@ -16,8 +16,10 @@
                 <img src="{{uri}}" alt="">
               </span>
             </div>
-            {{weather.current.temperature}} <span [innerHTML]="getTemperatureUnit(weather.request.unit)"></span>
-            <br />{{weather.request.query}}
+            <div class='weather-temperature'>
+              <span class='weather-temperature-value'>{{weather.current.temperature}}</span> <span [innerHTML]="getTemperatureUnit(weather.request.unit)"></span>
+              <br />{{weather.location.name}} {{weather.location.country}}
+            </div>
             <span class="fill-remaining-space"></span>
             <mat-icon (click)="deleteWeather(weather)" matTooltip="{{ 'weathers.delete' | translate }}"
             class="weather-action">delete</mat-icon>
