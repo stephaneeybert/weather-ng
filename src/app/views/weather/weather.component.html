@@ -15,8 +15,9 @@
               <span *ngFor="let uri of weather.current.weather_icons">
                 <img src="{{uri}}" alt="">
               </span>
+              {{weather.current.temperature}} {{getTemperatureUnit(weather.request.unit)}}
             </div>
-            {{weather.location.name}}, {{weather.location.country}}
+            {{weather.request.query}}
             <span class="fill-remaining-space"></span>
             <mat-icon (click)="deleteWeather(weather)" matTooltip="{{ 'weathers.delete' | translate }}"
             class="weather-action">delete</mat-icon>

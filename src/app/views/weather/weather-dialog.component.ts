@@ -3,7 +3,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { WeatherEdition } from './weather-edition';
 import { WeatherValidator } from './weather-validator';
-import { TEMPERATURE_UNIT, WEATHER_TEMPERATURE_UNIT, WEATHER_TEMPERATURE_UNIT_DEFAULT } from '@app/model/model.constants';
+import { TEMPERATURE_UNIT, WEATHER_SYSTEM_UNIT_NAME, WEATHER_TEMPERATURE_UNIT_DEFAULT } from '@app/model/model.constants';
 
 const NAME_MAX_LENGTH: number = 15;
 
@@ -47,7 +47,7 @@ export class WeatherDialogComponent implements OnInit {
   }
 
   private instantiateLists(): void {
-    WEATHER_TEMPERATURE_UNIT.forEach((name: string, id: TEMPERATURE_UNIT) => {
+    WEATHER_SYSTEM_UNIT_NAME.forEach((name: string, id: TEMPERATURE_UNIT) => {
       this.weatherTemperatureUnits.push({ 'id': id, 'name': name });
     });
   }

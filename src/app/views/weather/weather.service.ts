@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 import { Weather } from '@app/model/weather';
 import { WeatherStore } from '@app/store/weather-store';
 import { HttpService } from '@app/service/http.service';
-import { TEMPERATURE_UNIT } from '@app/model/model.constants';
+import { TEMPERATURE_UNIT, WEATHER_TEMPERATURE_UNIT_CODE, WEATHER_TEMPERATURE_UNIT_CODE_DEFAULT } from '@app/model/model.constants';
 
 const NB_WEATHERS_MAX: number = 10;
 
@@ -47,6 +47,15 @@ export class WeatherService {
     } else {
       return false;
     }
+  }
+
+  getTemperatureUnit(unitSystem: TEMPERATURE_UNIT): string | undefined {
+    if (WEATHER_TEMPERATURE_UNIT_CODE.has(unitSystem)) {
+      if (unitSystem == TEMPERATURE_UNIT.METRIC) {
+        return WEATHER_TEMPERATURE_UNIT_CODE.get(unitSystem);
+      }
+    }
+    return WEATHER_TEMPERATURE_UNIT_CODE_DEFAULT;
   }
 
 }

@@ -102,4 +102,8 @@ export class WeatherComponent implements OnInit, OnDestroy {
     }
   }
 
+  getTemperatureUnit(unitSystem: TEMPERATURE_UNIT): string | undefined {
+    return this.weatherService.getTemperatureUnit(unitSystem);
+  }
+
 }
